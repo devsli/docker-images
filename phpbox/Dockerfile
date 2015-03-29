@@ -12,6 +12,7 @@ RUN chmod +x /run.sh \
  && sed -i '/.*\/\/.*AllowNoPass/s/\/\///' /etc/phpmyadmin/config.inc.php \
  && sed -i '/upload_max_filesize/s/[0-9]\+/512/' /etc/php5/apache2/php.ini \
  && sed -i '/post_max_size/s/[0-9]\+/512/' /etc/php5/apache2/php.ini \
- && echo "Include /etc/phpmyadmin/apache.conf" >> /etc/apache2/apache2.conf
+ && echo "Include /etc/phpmyadmin/apache.conf" >> /etc/apache2/apache2.conf \
+ && a2enmod rewrite
 
 VOLUME /app
