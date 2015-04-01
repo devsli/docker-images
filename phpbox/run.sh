@@ -12,12 +12,7 @@ if [[ ! -d $VOLUME_HOME/mysql ]]; then
     mysql_install_db > /dev/null 2>&1
     echo "=> Done!"  
     /create_mysql_admin_user.sh
-
-    cp /usr/share/doc/phpmyadmin/examples/create_tables.sql.gz /tmp/
-    gunzip /tmp/create_tables.sql.gz
-    sed -i"" 's/pma__/pma_/' /tmp/create_tables.sql
-    mysql -u root < /tmp/create_tables.sql
-    rm /tmp/create_tables.sql
+    /create_phpmyadmin_tables.sh
 else
     echo "=> Using an existing volume of MySQL"
 fi
