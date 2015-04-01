@@ -30,7 +30,7 @@ if [[ -f $APACHE_PID_FILE ]]; then
 fi
 
 if [[ -f /app/composer.json ]]; then
-    composer -d"/app" install
+    HOME=/root composer -d"/app" install
 fi
 
 exec supervisord -n
