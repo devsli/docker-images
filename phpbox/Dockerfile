@@ -18,4 +18,5 @@ RUN chmod +x /run.sh \
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/tmp/ \
  && mv /tmp/composer.phar /usr/local/bin/composer
 
+WORKDIR /app
 VOLUME /app
