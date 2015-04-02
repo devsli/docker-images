@@ -6,6 +6,7 @@ RUN apt-get update                     \
  && rm -rf /var/lib/{apt,dpkg,cache,log}/
 
 ENV ENVIRONMENT development
+ENV PHINX_ENVIRONMENT development
 
 ADD run.sh /run.sh
 RUN chmod +x /run.sh \
