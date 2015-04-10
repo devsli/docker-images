@@ -10,6 +10,8 @@ What's included:
 * composer (`composer install` executes on each container start)
 * Apache
 
+Note that `192.168.59.103` in examples is a default boot2docker IP address, it could vary according to your environment.
+
 Run `MyPreciousWebProject` container bound to http://192.168.59.103:8080 (it is assumed that sources placed in `C:\Users\John\example`):
 
 ```bash
