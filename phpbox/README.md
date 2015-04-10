@@ -37,9 +37,11 @@ phpMyAdmin is available at http://192.168.59.103:8080/phpmyadmin
 Environment variables `ENVIRONMENT` and `PHINX_ENVIRONMENT` ([see phinx](https://phinx.org/)) are set to `development`.
 Here's how you can use it:
 ```php
+<?php
 error_reporting(0);
 
 if (getopt('ENVIRONMENT') == 'development') {
-    error_reporting(E_ALL & ~E_NOTICE);
+    error_reporting(E_ALL);
 }
+?>
 ```
