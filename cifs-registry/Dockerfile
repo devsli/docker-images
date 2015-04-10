@@ -7,6 +7,5 @@ RUN apt-get update			\
  && rm -rf /var/lib/{apt,dpkg,cache,log}/
 
 ADD mount.sh /run.sh
-RUN chmod a+x /run.sh
 
 CMD ["/run.sh"]
