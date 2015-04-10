@@ -1,11 +1,16 @@
 Swiss Army LAMP
 ===============
 
-Веб-сервер для разработки.
+All-in-one PHP development box.
 
-Если у тебя не Linux, потребуется установить и запустить [boot2docker](http://boot2docker.io). Ты попадёшь в консоль микровиртуалки, всё что она умеет - запускать Docker.
+What's included:
+* PHP 5.5.9
+* MySQL 5.5.41 (local root without password)
+* phpMyAdmin
+* composer (`composer install` executes on each container start)
+* Apache
 
-Запуск контейнера с именем `MyPreciousWebProject` по адресу http://192.168.59.103:8080, с учетом что исходники сайта лежат в `C:\Users\John\example`:
+Run `MyPreciousWebProject` container bound to http://192.168.59.103:8080 (it is assumed that sources placed in `C:\Users\John\example`):
 
 ```bash
 docker run -d \
@@ -14,21 +19,27 @@ docker run -d \
     -v /c/Users/John/Example/:/app \
     devsli/phpbox
 ```
-В дальнейшем, после перезапуска твоего ПК, этот контейнер необходимо запускать командой:
+
+Start docker container (e.g. after reboot):
 
 ```bash
 docker start MyPreciousWebProject
 ```
-Если потребуется войти в контейнер (например, чтобы почитать логи в /var/log/):
+
+Interactive shell:
 
 ```bash
 docker exec -it MyPreciousWebProject bash
 ```
 
-В контейнере функционирует phpMyAdmin, попасть можно по адресу http://192.168.59.103:8080/phpmyadmin (если не менялся порт)
+phpMyAdmin is available at http://192.168.59.103:8080/phpmyadmin
 
-Всё необходимое для сборки образа лежит в репозитории `docker-images`.
+Environment variables `ENVIRONMENT` and `PHINX_ENVIRONMENT` ([see phinx](https://phinx.org/)) are set to `development`.
+Here's how you can use it:
+```php
+error_reporting(0);
 
-```bash
-docker build -t "devsli/phpbox" .
+if (getopt('ENVIRONMENT') == 'development') {
+    error_reporting(E_ALL & ~E_NOTICE);
+}
 ```
