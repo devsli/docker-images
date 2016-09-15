@@ -1,5 +1,5 @@
 FROM jprjr/lighttpd
-MAINTAINER Leonid Suprun <mr.slay@gmail.com>
+MAINTAINER Leonid Suprun <leonid@suprun.pw>
 
 RUN rm /etc/machine-id
 

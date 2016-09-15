@@ -1,5 +1,5 @@
 FROM registry
-MAINTAINER Leonid Suprun <mr.slay@gmail.com>
+MAINTAINER Leonid Suprun <leonid@suprun.pw>
 
 RUN apt-get update			\
  && apt-get install -y cifs-utils	\
